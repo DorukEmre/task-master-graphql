@@ -30,7 +30,9 @@ const AddClientModal = () => {
     if (name === '' || email === '' || phone === '') {
       return alert('Please fill all fields')
     }
-    addClient(name, email, phone)
+    addClient({
+      variables: { name, email, phone },
+    })
 
     setName('')
     setEmail('')
