@@ -3,6 +3,10 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Script from 'next/script'
+import Header from '@/components/Header'
+
+import { ApolloProvider } from '@apollo/client'
+import client from '@/config/apolloClient'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -23,7 +27,10 @@ export default function App({ Component, pageProps }: AppProps) {
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossOrigin="anonymous"
       />
-      <Component {...pageProps} />
+      <ApolloProvider client={client}>
+        <Header />
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   )
 }
