@@ -1,5 +1,6 @@
 Frontend:
-React framework
+React/Next.js
+TypeScript
 Apollo client
 
 Backend:
