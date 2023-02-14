@@ -1,7 +1,5 @@
 const express = require('express')
-const colors = require('colors')
 require('dotenv').config()
-// const cors = require('cors')
 const { graphqlHTTP } = require('express-graphql')
 const schema = require('./schema/schema')
 const connectDB = require('./config/db')
@@ -11,8 +9,6 @@ const app = express()
 
 // Connect to DB
 connectDB()
-
-// app.use(cors())
 
 // graphQL end point '/graphql'
 // graphqlHTTP require schema
@@ -25,4 +21,4 @@ app.use(
   }),
 )
 
-app.listen(port, console.log(`Server running  http://localhost:${port}`))
+app.listen(port, () => console.log(`Server running  http://localhost:${port}`))
