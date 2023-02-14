@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { GET_PROJECT } from '@/queries/projectQueries'
 import ClientInfo from '@/components/ClientInfo'
+import DeleteProjectButton from '@/components/DeleteProjectButton'
 
 export default function project() {
   const router = useRouter()
@@ -45,6 +46,8 @@ export default function project() {
             <p className="lead">{data.project.status}</p>
 
             <ClientInfo client={data.project.client} />
+
+            <DeleteProjectButton projectId={data.project.id} />
           </div>
         </>
       )}
