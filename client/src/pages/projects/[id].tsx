@@ -11,7 +11,18 @@ export default function project() {
 
   const { loading, error, data } = useQuery(GET_PROJECT, { variables: { id } })
   if (loading) return <p>Loading...</p>
-  if (error) return <p>Error...</p>
+  if (error) {
+    console.log(error.message)
+    return (
+      <>
+        <p>Error...</p>
+        <br />
+        <Link href="/" className="btn btn-light btn-sm w-25 d-inline ms-auto">
+          Go back
+        </Link>
+      </>
+    )
+  }
 
   return (
     <>
